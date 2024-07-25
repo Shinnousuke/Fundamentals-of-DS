@@ -1,0 +1,113 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "fa1da739-cff1-46a8-b9c9-f2835a018fe9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter Employee ID:  6500\n",
+      "Enter Employee Name:  raghav\n",
+      "Enter Basic Salary:  500000\n",
+      "Enter Years of Experience:  9\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Employee Details:\n",
+      "Employee ID: 6500\n",
+      "Employee Name: raghav\n",
+      "\n",
+      "Salary Breakdown:\n",
+      "Basic Salary: ₹500000.00\n",
+      "HRA (35%): ₹175000.00\n",
+      "DA (58%): ₹290000.00\n",
+      "PF Deduction (9.5%): ₹47500.00\n",
+      "Bonus: ₹165000.00\n",
+      "\n",
+      "Net Salary: ₹1082500.00\n"
+     ]
+    }
+   ],
+   "source": [
+    "def calculate_net_salary():\n",
+    "  emp_id = int(input(\"Enter Employee ID: \"))\n",
+    "  name = input(\"Enter Employee Name: \")\n",
+    "  basic_salary = float(input(\"Enter Basic Salary: \"))\n",
+    "\n",
+    "  # hra da allowances\n",
+    "  hra = basic_salary * 0.35\n",
+    "  da = basic_salary * 0.58\n",
+    "\n",
+    "  # PF\n",
+    "  pf = basic_salary * 0.095\n",
+    "\n",
+    "  # bonus \n",
+    "  experience = int(input(\"Enter Years of Experience: \"))\n",
+    "  if experience >= 30:\n",
+    "    bonus = basic_salary * 0.59\n",
+    "  elif experience >= 23:\n",
+    "    bonus = basic_salary * 0.51\n",
+    "  elif experience >= 15:\n",
+    "    bonus = basic_salary * 0.45\n",
+    "  elif experience >= 7:\n",
+    "    bonus = basic_salary * 0.33\n",
+    "  else:\n",
+    "    bonus = basic_salary * 0.16\n",
+    "\n",
+    "  #net salary\n",
+    "  net_salary = basic_salary + da + hra - pf + bonus\n",
+    "\n",
+    "  # Print employee details and salary breakdown\n",
+    "  print(\"\\nEmployee Details:\")\n",
+    "  print(f\"Employee ID: {emp_id}\")\n",
+    "  print(f\"Employee Name: {name}\")\n",
+    "  print(\"\\nSalary Breakdown:\")\n",
+    "  print(f\"Basic Salary: ₹{basic_salary:.2f}\")\n",
+    "  print(f\"HRA (35%): ₹{hra:.2f}\")\n",
+    "  print(f\"DA (58%): ₹{da:.2f}\")\n",
+    "  print(f\"PF Deduction (9.5%): ₹{pf:.2f}\")\n",
+    "  print(f\"Bonus: ₹{bonus:.2f}\")\n",
+    "  print(f\"\\nNet Salary: ₹{net_salary:.2f}\")\n",
+    "\n",
+    "calculate_net_salary()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d4a3f267-5882-4698-a1d0-a5e264f6a36c",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
